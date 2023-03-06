@@ -1,5 +1,6 @@
 import numpy as np
 from matriz_alfabeto import matriz_alfabeto, legenda_alfabeto
+from funcoes_auxiliares import *
 
 
 """Funções que compõem uma biblioteca Python para criptografia usando enigma."""
@@ -7,8 +8,8 @@ from matriz_alfabeto import matriz_alfabeto, legenda_alfabeto
 """ Função | Decodifica mensagens como uma matriz usando one-hot encoding."""
 def para_one_hot(msg):
     # para_one_hot(msg : str)
-
-    list_msg = list(msg)
+    msg_ = limpa_mensagem(msg)
+    list_msg = list(msg_)
     one_hot = np.array([np.zeros(38)])
     for l in list_msg:
         index = legenda_alfabeto.index(l)
@@ -21,14 +22,20 @@ def para_one_hot(msg):
 """ Função | Converte mensagens da representação one-hot encoding para uma string legível."""
 def para_string(M):
     # para_string(M : np.ndarray)
-
-    
+    M = M.T 
+    msg = ''
+    for i in range(M.shape[0]):
+        # Use .index() to find the index of the first occurrence of 1 in M[i]
+        index = list(M[i]).index(1)
+        msg += legenda_alfabeto[index]
+    return msg
 
 """ Função | Aplica uma cifra simples em uma mensagem recebida como entrada e retorna a mensagem cifrada."""
 # obs: 'P' é uma matriz de permutação que realiza a cifra. 
 def cifrar(msg, P):
     # cifrar(msg : str, P : np.array)
-    pass
+    pass 
+
 
 """ Função | Recupera uma mensagem cifrada, recebida como entrada, e retorna a mensagem original."""
 # obs: 'P' é a matriz de permutação que realiza a cifra.
@@ -47,3 +54,4 @@ def enigma(msg, P, E):
 def de_enigma(msg, P, E):
     # de_enigma(msg : str, P : np.array, E : np.array)
     pass
+

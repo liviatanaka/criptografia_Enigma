@@ -9,6 +9,4 @@ def limpa_mensagem(msg):
     msg = unidecode(msg)
     # Substitui caracteres especiais por "_"
     msg = re.sub(r'[^a-z0-9\s]', '_', msg)
-    # Remove os números
-    msg = re.sub(r'[0-9]', '_', msg)
     return msg
