@@ -34,14 +34,23 @@ def para_string(M):
 # obs: 'P' é uma matriz de permutação que realiza a cifra. 
 def cifrar(msg, P):
     # cifrar(msg : str, P : np.array)
-    pass 
+    matriz_msg = para_one_hot(msg)
+    matriz_cifrada = P @ matriz_msg 
+    msg_cifrada = para_string(matriz_cifrada)
+    return msg_cifrada
+
 
 
 """ Função | Recupera uma mensagem cifrada, recebida como entrada, e retorna a mensagem original."""
 # obs: 'P' é a matriz de permutação que realiza a cifra.
 def de_cifrar(msg, P):
     # de_cifrar(msg : str, P : np.array) 
-    pass
+    matriz_cifrada = para_one_hot(msg)
+    P_inversa = np.linalg.inv(P)
+    matriz_msg = P_inversa @ matriz_cifrada
+    msg_limpa = para_string(matriz_msg)
+    return msg_limpa
+
 
 """ Função | Faz a cifra enigma na mensagem de entrada usando o cifrador `P` e o cifrador auxiliar `E`."""
 # obs: ambos representados como matrizes de permutação.
