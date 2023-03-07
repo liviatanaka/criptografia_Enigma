@@ -19,6 +19,7 @@ def para_one_hot(msg):
     matriz_one_hot = np.delete(one_hot, 0, axis=0).T
     return matriz_one_hot
 
+
 """ Função | Converte mensagens da representação one-hot encoding para uma string legível."""
 def para_string(M):
     # para_string(M : np.ndarray)
@@ -30,6 +31,7 @@ def para_string(M):
         msg += legenda_alfabeto[index]
     return msg
 
+
 """ Função | Aplica uma cifra simples em uma mensagem recebida como entrada e retorna a mensagem cifrada."""
 # obs: 'P' é uma matriz de permutação que realiza a cifra. 
 def cifrar(msg, P):
@@ -38,7 +40,6 @@ def cifrar(msg, P):
     matriz_cifrada = P @ matriz_msg 
     msg_cifrada = para_string(matriz_cifrada)
     return msg_cifrada
-
 
 
 """ Função | Recupera uma mensagem cifrada, recebida como entrada, e retorna a mensagem original."""
