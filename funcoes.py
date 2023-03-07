@@ -56,11 +56,36 @@ def de_cifrar(msg, P):
 # obs: ambos representados como matrizes de permutação.
 def enigma(msg, P, E):
     # enigma(msg : str, P : np.array, E : np.array)
-    pass
+    matriz_msg = para_one_hot(msg)
+    matriz_enigma = np.array([np.zeros(38)])
+    for i in range(matriz_msg.shape[1]):
+        matriz_cifrada = P @ matriz_msg
+        P = E @ P
+        matriz_transposta = matriz_cifrada.T
+        linha = matriz_transposta[i]
+        matriz_enigma = np.concatenate([matriz_enigma, [linha]])
+
+    matriz_final = np.delete(matriz_enigma, 0, axis=0).T
+    msg_enigma = para_string(matriz_final)
+    return msg_enigma
+
 
 """ Função | Recupera uma mensagem cifrada como enigma assumindo que ela foi cifrada com o usando o cifrador `P` e o cifrador auxiliar `E`."""
 # obs: ambos representados como matrizes de permutação.
 def de_enigma(msg, P, E):
     # de_enigma(msg : str, P : np.array, E : np.array)
-    pass
+    matriz_cifrada = para_one_hot(msg)
+    matriz_msg = np.array([np.zeros(38)])
+    for i in range(matriz_cifrada.shape[1]):
+        P_inversa = np.linalg.inv(P)
+        matriz_traducao = P_inversa @ matriz_cifrada
+        P = E @ P
+        matriz_transposta = matriz_traducao.T
+        linha = matriz_transposta[i]
+        matriz_msg = np.concatenate([matriz_msg, [linha]])
+    
+    matriz_final = np.delete(matriz_msg, 0, axis=0).T
+    msg_enigma = para_string(matriz_final)
+    return msg_enigma
+
 
