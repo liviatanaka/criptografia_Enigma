@@ -5,7 +5,7 @@ import setuptools
 
 setuptools.setup(
     name='enigmalille',
-    version='0.0.1',
+    version='0.0.2',
     description= 'Biblioteca de criptografia enima - Isabelle e Livia',
     url='https://github.com/liviatanaka/criptografia_Enigma',
     packages=['enigmalille'],

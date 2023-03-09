@@ -1,7 +1,21 @@
 import numpy as np
-from matriz_alfabeto import matriz_alfabeto, legenda_alfabeto
 from funcoes_auxiliares import *
+import re
+from unidecode import unidecode
 
+legenda_alfabeto = list('abcdefghijklmnopqrstuvwxyz _0123456789')
+matriz_alfabeto = np.identity(38)
+
+"""Funções auxiliares para a biblioteca de criptografia enigma."""
+
+def limpa_mensagem(msg):
+    # Transforma a string para minúsculo
+    msg = msg.lower()
+    # Remove acentos
+    msg = unidecode(msg)
+    # Substitui caracteres especiais por "_"
+    msg = re.sub(r'[^a-z0-9\s]', '_', msg)
+    return msg
 
 """Funções que compõem uma biblioteca Python para criptografia usando enigma."""
 
