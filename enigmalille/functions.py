@@ -1,5 +1,4 @@
 import numpy as np
-from funcoes_auxiliares import *
 import re
 from unidecode import unidecode
 
