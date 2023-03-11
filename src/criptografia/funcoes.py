@@ -1,6 +1,5 @@
 import numpy as np
-from matriz_alfabeto import matriz_alfabeto, legenda_alfabeto
-from funcoes_auxiliares import *
+from criptografia.matriz_alfabeto import matriz_alfabeto, legenda_alfabeto
 
 
 """Funções que compõem uma biblioteca Python para criptografia usando enigma."""
@@ -90,3 +89,22 @@ def de_enigma(msg, P, E):
     return msg_enigma
 
 
+"""Funções auxiliares para a biblioteca de criptografia enigma."""
+import re
+from unidecode import unidecode
+
+def limpa_mensagem(msg):
+    # Transforma a string para minúsculo
+    msg = msg.lower()
+    # Remove acentos
+    msg = unidecode(msg)
+    # Substitui caracteres especiais por "_"
+    msg = re.sub(r'[^a-z0-9\s]', '_', msg)
+    return msg
+
+def cria_matriz(chave):
+    rotacao = chave % 38
+    leg = 'abcdefghijklmnopqrstuvwxyz _0123456789'
+    novo_alfabeto = str(leg[rotacao:] + leg[:rotacao])
+    matriz = para_one_hot(novo_alfabeto)
+    return matriz
