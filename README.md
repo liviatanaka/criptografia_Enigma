@@ -1,5 +1,5 @@
 # criptografia_Enigma
-APS 1 - Algebra Linear e Teoria da Informação - 2021.1
+APS 2 - Algebra Linear e Teoria da Informação - 2021.1
 
 # Indice
 1. [Introdução](#introdução)
@@ -10,13 +10,14 @@ APS 1 - Algebra Linear e Teoria da Informação - 2021.1
 6. [Como rodar](#como-rodar)
 7. [Como instalar a biblioteca](#como-instalar-a-biblioteca)
 8. [Como rodar a API](#como-rodar-a-api)
+9. [Demonstração da biblioteca](#demonstração-da-biblioteca)
 
 ## Integrantes do grupo
-* Isabelle da Silva Santos
-* Livia Tanaka
+* [Isabelle da Silva Santos](https://github.com/isabelleatt)
+* [Livia Tanaka](https://github.com/liviatanaka)
 
 ## Introdução
-Essa é uma biblioteca em Python que possibilita a criptografia e descriptografia de mensagens por meio do algoritmo Enigma. Ela foi criada com o intuito de atender à demanda da APS-2 da disciplina de Álgebra Linear e Teoria da Informação, ministrada pelo professor Tiago Fernandes Tavares, no curso de Ciência da Computação do Insper.
+Essa é uma biblioteca em Python que possibilita a criptografia e descriptografia de mensagens por meio do algoritmo Enigma. Ela foi criada com o intuito de atender à demanda da APS 2 da disciplina de Álgebra Linear e Teoria da Informação, ministrada pelo professor Tiago Fernandes Tavares, no curso de Ciência da Computação do Insper.
 
 ## Funcionamento do Enigma
 O algoritmo Enigma é uma cifra de substituição polialfabética que usa uma série de rotores para codificar letras em uma mensagem. Cada rotor é uma permutação dos caracteres do alfabeto, e a cifra é construída fazendo com que a mensagem passe pelos rotores em uma ordem específica.
