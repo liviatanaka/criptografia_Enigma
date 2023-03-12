@@ -8,7 +8,8 @@ APS 1 - Algebra Linear e Teoria da Informação - 2021.1
 4. [Funções disponíveis](#funções-disponíveis)
 5. [Equações implementadas](#equações-implementadas)
 6. [Como rodar](#como-rodar)
-7. [Como rodar o demo](#como-rodar-o-demo)
+7. [Como instalar a biblioteca](#como-instalar-a-biblioteca)
+8. [Como rodar a API](#como-rodar-a-api)
 
 ## Integrantes do grupo
 * Isabelle da Silva Santos
@@ -41,10 +42,28 @@ A criptografia com Enigma envolve uma série de operações realizadas em uma me
 
 A função enigma recebe como entrada uma mensagem de texto, a matriz P e a matriz E, e retorna a mensagem cifrada. Para cada letra da mensagem, a função realiza as seguintes operações:
 
-1. Transforma a letra em uma matriz one-hot encoding.
-2. Multiplica a matriz da letra pela matriz de permutação P.
+1. Transforma a mensagem em uma matriz one-hot encoding.
+
+    ```bash
+        matriz_msg = para_one_hot(msg)
+    ```
+
+2. Multiplica a coluna da respectiva letra na matriz da mensagem pela matriz da permutação P.
+
+    ```bash
+        letra_cifrada = P @ coluna_letra
+    ```
+
 3. Concatena a matriz resultante à matriz final da mensagem cifrada.
+
+    ```bash
+        matriz_enigma = np.concatenate((matriz_enigma, letra_cifrada), axis=1)
+    ```
 4. Multiplica a matriz de permutação P pela matriz E.
+
+    ```bash
+        P = E @ P
+    ```
 
 Ao final das operações, a função retorna a mensagem cifrada em texto.
 
@@ -66,39 +85,31 @@ As funções auxiliares para a biblioteca de criptografia enigma incluem `limpa_
 
 Para rodar o demo da biblioteca Enigma, siga as instruções abaixo:
 
-1. Certifique-se de que o Python 3.6 ou superior está instalado no seu computador.
+## Como instalar a biblioteca
+1. Certifique-se de ter o Python 3 instalado em seu computador.
+2. Para instalar a biblioteca, execute o seguinte comando no terminal:
+    ```bash
+    pip install git+https://github.com/liviatanaka/criptografia_Enigma
+    ```
+
+## Como rodar a API
+1. Certifique-se de que o Python 3 ou superior está instalado no seu computador.
 2. Clone ou faça o download do repositório no seu computador.
 3. Acesse a pasta raiz do projeto no terminal.
 4. Instale as dependências da biblioteca com o comando:
-
     ```bash
     pip install -r requirements.txt
     ```
-5. Certifique-se de que as bibliotecas unidecode, flask, flask_restful, requests e numpy estejam instaladas no seu ambiente virtual. Para instalar essas bibliotecas, você pode usar o gerenciador de pacotes pip. Abra um terminal ou prompt de comando e execute o seguinte comando:
-    
+5. Execute o seguinte comando para rodar o demo:
     ```bash
-    pip install unidecode flask flask_restful requests numpy
+    python app.py
     ```
-    
-## Como rodar o demo
-1. Em seguida, execute o seguinte comando no terminal:  
-
-    ```bash
-    python demo.py
-    ```
-
 Isso iniciará o servidor Flask e o demo estará disponível no endereço http://localhost:5000.
+Para demonstração rápida, consulte o arquivo [teste_api.ipynb](teste_api.ipynb).
 
-Para usar a biblioteca em outro projeto, siga as seguintes instruções:
+## Demonstração da biblioteca
+Para aprender a usar a biblioteca enigmalille, consulte o arquivo [teste_biblioteca.ipynb](teste_biblioteca.ipynb). Nele, você encontrará exemplos de como cifrar e decifrar diferentes tipos de mensagens usando as funções disponíveis, incluindo:
 
-2. Importe a biblioteca Enigma no seu arquivo Python:
-    
-        ```python
-        from enigmalille import *
-        ```
-
-## Como usar a biblioteca
-
-* Mensagens normais: 
-* Mensagens com caracteres que não fazem parte do alfabeto: 
-* Mensagens vazias: 
+* Mensagens comuns
+* Mensagens contendo caracteres que não pertencem ao alfabeto
+* Mensagens vazias
