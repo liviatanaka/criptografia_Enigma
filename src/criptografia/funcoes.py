@@ -25,7 +25,6 @@ def para_string(M):
     M = M.T 
     msg = ''
     for i in range(M.shape[0]):
-        # Use .index() to find the index of the first occurrence of 1 in M[i]
         index = list(M[i]).index(1)
         msg += legenda_alfabeto[index]
     return msg

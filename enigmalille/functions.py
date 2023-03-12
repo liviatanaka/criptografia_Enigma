@@ -39,7 +39,6 @@ def para_string(M):
     M = M.T 
     msg = ''
     for i in range(M.shape[0]):
-        # Use .index() to find the index of the first occurrence of 1 in M[i]
         index = list(M[i]).index(1)
         msg += legenda_alfabeto[index]
     return msg
@@ -101,5 +100,3 @@ def de_enigma(msg, P, E):
     matriz_final = np.delete(matriz_msg, 0, axis=1)
     msg_enigma = para_string(matriz_final)
     return msg_enigma
-
-
