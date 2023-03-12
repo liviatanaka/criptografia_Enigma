@@ -3,18 +3,18 @@ APS 1 - Algebra Linear e Teoria da Informação - 2021.1
 
 # Indice
 1. [Introdução](#introdução)
-2. [Integrantes do grupo](#integrantes-do-grupo)
-3. [Funcionamento do Enigma](#funcionamento-do-enigma)
-4. [Implementação](#implementação)
-5. [Funções disponíveis](#funções-disponíveis)
-6. [Equações implementadas](#equações-implementadas)
-7. [Como rodar](#como-rodar)
-8. [Como rodar o demo](#como-rodar-o-demo)
+2. [Funcionamento do Enigma](#funcionamento-do-enigma)
+3. [Implementação](#implementação)
+4. [Funções disponíveis](#funções-disponíveis)
+5. [Equações implementadas](#equações-implementadas)
+6. [Como rodar](#como-rodar)
+7. [Como rodar o demo](#como-rodar-o-demo)
 
 ## Integrantes do grupo
 * Isabelle da Silva Santos
 * Livia Tanaka
 
+## Introdução
 Essa é uma biblioteca em Python que possibilita a criptografia e descriptografia de mensagens por meio do algoritmo Enigma. Ela foi criada com o intuito de atender à demanda da APS-2 da disciplina de Álgebra Linear e Teoria da Informação, ministrada pelo professor Tiago Fernandes Tavares, no curso de Ciência da Computação do Insper.
 
 ## Funcionamento do Enigma
@@ -76,9 +76,10 @@ Para rodar o demo da biblioteca Enigma, siga as instruções abaixo:
     ```
 5. Certifique-se de que as bibliotecas unidecode, flask, flask_restful, requests e numpy estejam instaladas no seu ambiente virtual. Para instalar essas bibliotecas, você pode usar o gerenciador de pacotes pip. Abra um terminal ou prompt de comando e execute o seguinte comando:
     
-        ```bash
-        pip install unidecode flask flask_restful requests numpy
-        ```
+    ```bash
+    pip install unidecode flask flask_restful requests numpy
+    ```
+    
 ## Como rodar o demo
 1. Em seguida, execute o seguinte comando no terminal:  
 
